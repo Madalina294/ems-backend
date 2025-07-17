@@ -16,7 +16,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     // Add REST api
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
@@ -30,7 +30,7 @@ public class EmployeeController {
     }
 
     // GET all rest api
-    @GetMapping
+    @GetMapping("/get-all")
     public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
         List<EmployeeDto> employeeDtoList = employeeService.getAllEmployees();
         return ResponseEntity.ok(employeeDtoList);
